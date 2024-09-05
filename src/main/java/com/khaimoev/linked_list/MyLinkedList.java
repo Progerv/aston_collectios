@@ -28,12 +28,12 @@ public class MyLinkedList<E> implements ListInterface<E> {
 
     @Override
     public void add(E e) {
-        Node item;
+        Node<E> item;
         if (first == null) {
-            item = new Node(null, e, null);
+            item = new Node<E>(null, e, null);
             first = item;
         } else {
-            item = new Node(last, e, null);
+            item = new Node<E>(last, e, null);
             last.next = item;
         }
         last = item;
@@ -48,7 +48,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
     }
 
     Node<E> findNodeForIndex(int index) {
-        Node item = first;
+        Node<E> item = first;
         for (int i = 0; i < index; i++) {
             item = item.next;
         }
@@ -102,7 +102,7 @@ public class MyLinkedList<E> implements ListInterface<E> {
         if (first == null) {
             sb.append("Empty");
         } else {
-            Node nextItem = this.first;
+            Node<E> nextItem = this.first;
             do {
                 sb.append(nextItem.item);
                 if (nextItem.next == null) {
